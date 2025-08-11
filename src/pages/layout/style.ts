@@ -10,7 +10,7 @@ export const styleLayout = StyleSheet.create({
   
  } ,  
  top: {
-  backgroundColor:themas.colors.primary,
+  backgroundColor:themas.colors.gray,
   width:"100%",
   height:Dimensions.get("window").height/4,
   flexDirection:"row"
