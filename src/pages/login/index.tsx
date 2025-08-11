@@ -57,7 +57,8 @@ const navigation = useNavigation();
             <View style={styleLogin.contexMid}>
 
 
-                <Input title={"E-mail:"} placeholder='Email' icon='email' setState={setEmail} state={email}/>
+                
+                {/* <Input title={"E-mail:"} placeholder='Email' icon='email' setState={setEmail} state={email}/> */}
 
 
 
