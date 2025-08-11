@@ -1,75 +1,78 @@
 import { View, Image, Text, TextInput, Pressable, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
-import { style } from './style'
+import { styleLogin } from './style'
 import Logo from '../../assets/logo.png'
-import {MaterialIcons} from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons'
 import { themas } from '../../global/themes'
 import { useState } from 'react'
+import { Input } from '../../components/input'
+import { useNavigation } from '@react-navigation/native'
+
 export default function Login() {
-const [email, setEmail] = useState('')
-const [password, setPassword] = useState('')
+const navigation = useNavigation();
 
-const [loading, setLoading] = useState(false)
-async function getLogin(){
-    try {
-       
-       if(!email || !password) {
-        return Alert.alert("Atenção", "Informe o email e a senha!")
-       }
-        setLoading(true)
-       setTimeout(() => {
-        if(email === "andersonmendes2007@gmail.com" && password === "1234"){
-   Alert.alert("Sucesso", "Usuario logado!")
-        }else{
-alert("Email ou senha incorreto!")
+    const [email, setEmail] = useState('ROOT')
+    const [password, setPassword] = useState('root')
+
+    const [loading, setLoading] = useState(false)
+    async function getLogin() {
+        try {
+
+            if (!email || !password) {
+                return Alert.alert("Atenção", "Informe o email e a senha!")
+            }
+            setLoading(true)
+            setTimeout(() => {
+                if (email === "ROOT" && password === "root") {
+                    Alert.alert("Sucesso", "Usuario logado!") 
+                   navigation.navigate('Layout' as never)
+                } else {
+                    alert("Email ou senha incorreto!")
+                }
+            }, 2000);
+
+        } catch (error) {
+            alert("erro")
         }
-       }, 2000);
-     
-    } catch (error) {
-        alert("erro")
-    }
-    finally{
-         setTimeout(() => {
-          setLoading(false)
-       }, 2000);
-    }
+        finally {
+            setTimeout(() => {
+                setLoading(false)
+            }, 2000);
+        }
 
-    setEmail("")
-    setPassword("")
-}
+        setEmail("")
+        setPassword("")
+    }
+    function criarConta() {
+         navigation.navigate('CadastroLogin' as never)
+    }
     return (
-        <View style={style.containerLogin}>
+        <View style={styleLogin.containerLogin}>
 
-            <View style={style.contexTop}>
-                <Image source={Logo} style={style.logo}
+            <View style={styleLogin.contexTop}>
+                <Image source={Logo} style={styleLogin.logo}
                     resizeMode='contain' />
-                <Text style={style.text}>Olá, Seja bem vindo! </Text>
+                <Text style={styleLogin.text}>Olá, Seja bem vindo! </Text>
             </View>
 
-            <View style={style.contexMid}>
-                <Text style={style.titleInput}>E-mail:</Text>
-                <View style={style.boxInput}> <TextInput style={style.Input}
-                value={email}
-                 placeholder='Email' 
-                 onChangeText={(e) => setEmail(e)}></TextInput>
-                <Text style={style.iconeInput}><MaterialIcons name='email' size={20} color={themas.colors.gray}/></Text>
-                 </View>
-               
-                <Text style={style.titleInput}>Senha:</Text>
-                  <View style={style.boxInput}>
-                <TextInput style={style.Input} placeholder='Senha' value={password} onChangeText={(e) => setPassword(e)}></TextInput>
-                <Text style={style.iconeInput}><MaterialIcons
-                name='password' size={20} color={themas.colors.gray}/></Text>
+            <View style={styleLogin.contexMid}>
+
+
+                <Input title={"E-mail:"} placeholder='Email' icon='email' setState={setEmail} state={email}/>
+
+
+
+                <Input title={"Senha:"} placeholder='Senha' icon='password' setState={setPassword} state={password}/>
+        
+
+            </View>
+            <View style={styleLogin.contexFooter}>
+                <TouchableOpacity style={styleLogin.button} onPress={() => getLogin()}>
+                    {loading ? <ActivityIndicator color={'#fff'} size={'small'} /> : <Text style={styleLogin.textButton}>Entrar</Text>}
+
+                </TouchableOpacity>
             </View>
 
-</View>
-            <View style={style.contexFooter}>
-           <TouchableOpacity style={style.button} onPress={()=> getLogin() }>
-            {loading ? <ActivityIndicator color={'#fff'} size={'small'}/> : <Text style={style.textButton}>Entrar</Text> }
-          
-           </TouchableOpacity>
-            </View>
-
-<Text style={style.textCriarConta}>Crie sua conta. <Text style={{color:themas.colors.primary}}>Criar conta </Text></Text>
+            <Text style={styleLogin.textCriarConta}>Crie sua conta. <TouchableOpacity onPress={() => criarConta()} style={{ marginTop: 10 }}><Text style={{ color: themas.colors.primary, fontSize: 16 }}>Criar conta </Text></TouchableOpacity> </Text>
         </View>
     )
 }
