@@ -62,7 +62,12 @@ function setarSecure(){
             <View style={styleLogin.contexMid}>
 
 
+<<<<<<< HEAD
                 <Input title={"E-mail:"} placeholder='Email' icon='email'  setState={setEmail} state={email} secureTextEntre={false} setSecureTextEntre={()=> false} />
+=======
+                
+                <Input title={"E-mail:"} placeholder='Email' icon='email' setState={setEmail} state={email}/> 
+>>>>>>> 6370c8dbc7552b020dcfd9f94a8ce4e12c3fab3f
 
 
 
