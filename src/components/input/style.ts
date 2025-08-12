@@ -15,9 +15,12 @@ export const styleInput = StyleSheet.create({
    margin:20
     },
     iconeInput: {
-        padding: 10,
-        borderWidth: 0,
+        width:60,
+        height:50,
    
+      borderColor:"transparent",
+   textAlign:"center",
+   paddingTop:12,
     },
      Input: {
         borderColor: "black",
@@ -36,5 +39,12 @@ export const styleInput = StyleSheet.create({
 
 
     },
+    pressIcon:{
+        
+        width:50,
+        
+        
+       
+    }
 
 })

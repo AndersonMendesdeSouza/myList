@@ -18,19 +18,21 @@ type Props = TextInputProps & {
   onIconLeftPress?: () => void,
   onIconRightPress?: () => void,
   placeholder?: string,
-icon?: React.ComponentProps<typeof MaterialIcons>['name'],
+icon?: React.ComponentProps<typeof MaterialIcons>['name'] ,
 setState:(value:string)=> void,
-state: string
+state: string,
+secureTextEntre: boolean,
+setSecureTextEntre:() => void
 }
 export const Input = forwardRef((Prop: Props, ref: LegacyRef<TextInput> | null) => {
 
-  const {state, setState, icon, placeholder, iconLeft, iconRight, iconLeftName, iconRightName, title, onIconLeftPress, onIconRightPress } = Prop;
+  const {state, setState, icon, placeholder, iconLeft, iconRight, iconLeftName, iconRightName, title, onIconLeftPress, onIconRightPress, secureTextEntre,setSecureTextEntre } = Prop;
   return (
     <>
     <Text>{title}</Text>
     <View style={styleInput.boxInput}>
-      <TextInput placeholder={placeholder} style={styleInput.Input} value={state} onChangeText={(e) => setState(e)}/>
-      <Text style={styleInput.iconeInput}><MaterialIcons name={icon} size={20} color={themas.colors.gray}/></Text>
+      <TextInput placeholder={placeholder} style={styleInput.Input} value={state} onChangeText={(e) => setState(e)} secureTextEntry={secureTextEntre}/>
+      <Text style={styleInput.iconeInput}><MaterialIcons name={icon} size={25} color={themas.colors.gray} onPress={() => setSecureTextEntre()}/></Text>
   </View>
  </>
   )

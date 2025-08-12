@@ -14,6 +14,11 @@ const navigation = useNavigation();
     const [password, setPassword] = useState('root')
 
     const [loading, setLoading] = useState(false)
+const [secure, setSecure] = useState(true)
+
+function setarSecure(){
+   setSecure(valor => !valor)
+}
     async function getLogin() {
         try {
 
@@ -57,11 +62,11 @@ const navigation = useNavigation();
             <View style={styleLogin.contexMid}>
 
 
-                <Input title={"E-mail:"} placeholder='Email' icon='email' setState={setEmail} state={email}/>
+                <Input title={"E-mail:"} placeholder='Email' icon='email'  setState={setEmail} state={email} secureTextEntre={false} setSecureTextEntre={()=> false} />
 
 
 
-                <Input title={"Senha:"} placeholder='Senha' icon='password' setState={setPassword} state={password}/>
+                <Input title={"Senha:"} placeholder='Senha' icon='password' setState={setPassword} state={password} secureTextEntre={secure} setSecureTextEntre={setarSecure} />
         
 
             </View>

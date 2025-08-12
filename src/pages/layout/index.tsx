@@ -8,7 +8,7 @@ export function Layout() {
 
             <View style={styleLayout.top}>
 <Text>My<Text>List</Text></Text>
-<TextInput placeholder="Digite um texto!"></TextInput>
+<TextInput placeholder="Digite um texto!" ></TextInput>
             </View>
 
             <View style={styleLayout.med}></View>
