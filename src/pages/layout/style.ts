@@ -13,18 +13,48 @@ export const styleLayout = StyleSheet.create({
   backgroundColor:themas.colors.primary,
   width:"100%",
   height:Dimensions.get("window").height/4,
-  flexDirection:"row"
+  justifyContent:"center",
+alignItems:"center",
+gap:20
+ },
+ barraPesquisa:{
+ 
+width:"87%",
+borderRadius:20,
+padding:10
+ },
+  containerInput:{
+backgroundColor:themas.colors.lightGray,
+width:"80%",
+borderRadius:20,
+flexDirection:"row",
+alignItems:"center"
+ },
+ nome1:{
+fontSize:25,
+color:themas.colors.secondary,
+fontWeight:800
+ },
+ nome2:{
+fontSize:18,
+color:themas.colors.bdScreen,
+fontWeight:500
  },
  med:{
-  backgroundColor:themas.colors.gray,
+  backgroundColor:themas.colors.bdScreen,
   width:"100%",
-  height:Dimensions.get("window").height/2.3
+  height:Dimensions.get("window").height/1.4 ,
+  justifyContent:"center",
+  alignItems:"center"
  },
  footer:{
   backgroundColor:themas.colors.primary,
   width:"100%",
-  height:Dimensions.get("window").height/3
- }
+  height:Dimensions.get("window").height/7,
+  alignItems:"center",
+ paddingTop:10
+ },
+
 
 }
 )

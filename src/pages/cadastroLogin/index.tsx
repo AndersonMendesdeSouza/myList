@@ -15,6 +15,21 @@ const navigate = useNavigation();
     const [password, setPassword] = useState('')
     const [telefone, setTelefone] = useState('')
     const [loading, setLoading] = useState(false)
+const [secure, setSecure] = useState(true)
+
+function formatarTelefone(valor:string){
+    const numeros = valor.replace(/\D/g,"")
+
+    if(numeros.length <= 10){
+        return numeros.replace(/(\d{2}) (\d{4}) (\d{0,4})/,"($1) $2-3");
+    } else{
+        return numeros.replace(/(\d{2}) (\d{5}) (\d{0,4})/,"($1) $2-3")
+        setTelefone(numeros)
+    }
+}
+function setsecure(){
+    setSecure(valor => !valor)
+}
 
     function setLogin() {
 if(!email || !password || !telefone){
@@ -64,11 +79,11 @@ setTimeout(() => {
             <View style={styleSet.contexMid}>
 
 
-                <Input title={"E-mail:"} placeholder='Email' icon='email' setState={setEmail} state={email} />
+                <Input title={"E-mail:"} placeholder='Email' icon='email' setState={setEmail} state={email} secureTextEntre={false} setSecureTextEntre={() => null}/>
 
-                <Input title={"Senha:"} placeholder='Senha' icon='password' setState={setPassword} state={password} />
+                <Input title={"Senha:"} placeholder='Senha' icon={secure ? "visibility-off": "visibility"} setState={setPassword} state={password} secureTextEntre={secure} setSecureTextEntre={setsecure}/>
 
-                <Input title={"Telefonne:"} placeholder='Telefone' icon='phone' setState={setTelefone} state={telefone} />
+                <Input title={"Telefonne:"}  Typekeyboard="phone-pad" placeholder='00 00000-0000' icon='phone' setState={setTelefone} state={telefone}  secureTextEntre={false} setSecureTextEntre={() => null}/>
 
 
             </View>

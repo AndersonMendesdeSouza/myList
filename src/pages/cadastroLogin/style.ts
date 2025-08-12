@@ -4,7 +4,7 @@ import { themas } from "../../global/themes"
 export const styleSet = StyleSheet.create({
 containerCadastro:{
  flex: 1,
-justifyContent: "center",
+ 
 alignItems: "center",
  
 },
