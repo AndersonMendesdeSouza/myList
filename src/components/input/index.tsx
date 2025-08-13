@@ -29,7 +29,7 @@ export const Input = forwardRef((Prop: Props, ref: LegacyRef<TextInput> | null) 
 
   const {Typekeyboard, state, setState, icon, placeholder, iconLeft, iconRight, iconLeftName, iconRightName, title, onIconLeftPress, onIconRightPress, secureTextEntre,setSecureTextEntre } = Prop;
   return (
-    <>
+  <> 
     <Text>{title}</Text>
     <View style={styleInput.boxInput}>
       <TextInput keyboardType={Typekeyboard} placeholder={placeholder} style={styleInput.Input} value={state} onChangeText={(e) => setState(e)} secureTextEntry={secureTextEntre}/>

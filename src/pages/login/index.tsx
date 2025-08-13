@@ -28,7 +28,6 @@ function setarSecure(){
             setLoading(true)
             setTimeout(() => {
                 if (email === "ROOT" && password === "root") {
-                    Alert.alert("Sucesso", "Usuario logado!") 
                    navigation.navigate('Layout' as never)
                 } else {
                     alert("Email ou senha incorreto!")

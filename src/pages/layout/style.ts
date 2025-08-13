@@ -8,14 +8,18 @@ export const styleLayout = StyleSheet.create({
     justifyContent:"center",
     alignItems:"center",
   
- } ,  
+ } , 
+ containerCriaTarefa:{
+ position:"absolute"
+ } ,
  top: {
   backgroundColor:themas.colors.primary,
   width:"100%",
-  height:Dimensions.get("window").height/4,
+  height:Dimensions.get("window").height/5,
   justifyContent:"center",
 alignItems:"center",
-gap:20
+gap:20,
+paddingTop:50
  },
  barraPesquisa:{
  
@@ -44,7 +48,6 @@ fontWeight:500
   backgroundColor:themas.colors.bdScreen,
   width:"100%",
   height:Dimensions.get("window").height/1.4 ,
-  justifyContent:"center",
   alignItems:"center"
  },
  footer:{
