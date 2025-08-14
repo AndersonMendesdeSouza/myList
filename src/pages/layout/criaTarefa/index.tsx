@@ -6,8 +6,7 @@ import { useState } from "react";
 import { Itarefa } from "../../../global/types/Itarefa";
 
 interface propNovaTarefa{
- setTarefas:(valor:string)=>void
- //React.Dispatch<React.SetStateAction<Itarefa[]>>
+ setTarefas:React.Dispatch<React.SetStateAction<Itarefa[]>>
 }
 export default function novaTarefa(prop:propNovaTarefa){
     const {setTarefas} = prop
@@ -16,6 +15,9 @@ const [tarefa, setTarefa] = useState({
     descricao:""
 })
 
+function adicionarTarefa(){
+    setTarefas(valor => [...valor, {...tarefa}])
+}
     return(
         <View style={styleCriaTarefa.container}> 
         
@@ -29,7 +31,7 @@ const [tarefa, setTarefa] = useState({
      <MaterialIcons name="edit"size={20}/>
      </View>
 
-<TouchableOpacity style={styleCriaTarefa.button}><Text style={styleCriaTarefa.textButton}>Adicionar</Text></TouchableOpacity>
+<TouchableOpacity style={styleCriaTarefa.button} onPress={()=> adicionarTarefa()}><Text style={styleCriaTarefa.textButton}>Adicionar</Text></TouchableOpacity>
         </View> 
     )
 }
